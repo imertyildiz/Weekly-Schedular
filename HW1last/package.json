@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@vaadin/vaadin-button": "^23.0.5",
+    "@vaadin/vaadin-grid": "^23.0.5",
+    "@vaadin/vaadin-text-field": "^23.0.5"
+  }
+}

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    #cargo_table {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    #cargo_table td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    #cargo_table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #cargo_table td:hover {
+        background-color: #ddd;
+    }
+
+    #cargo_table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+
+    .button {
+        display: inline-block;
+        padding: 5px 10px;
+        font-size: 14px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        outline: none;
+        color: #fff;
+        background-color: #4CAF50;
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 6px #999;
+    }
+
+    .button:hover {
+        background-color: #3e8e41
+    }
+
+    .button:active {
+        background-color: #3e8e41;
+        box-shadow: 0 4px #666;
+        transform: translateY(4px);
+    }
+
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content */
+    .modal-content {
+        position: relative;
+        background-color: #fefefe;
+        margin: auto;
+        padding: 0;
+        border: 1px solid #888;
+        width: 80%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        -webkit-animation-name: animatetop;
+        -webkit-animation-duration: 0.4s;
+        animation-name: animatetop;
+        animation-duration: 0.4s
+    }
+
+    /* Add Animation */
+    @-webkit-keyframes animatetop {
+        from {
+            top: -300px;
+            opacity: 0
+        }
+        to {
+            top: 0;
+            opacity: 1
+        }
+    }
+
+    @keyframes animatetop {
+        from {
+            top: -300px;
+            opacity: 0
+        }
+        to {
+            top: 0;
+            opacity: 1
+        }
+    }
+
+    /* The Close Button */
+    .close {
+        color: white;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .modal-header {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+
+    .modal-body {
+        padding: 2px 16px;
+    }
+
+    .modal-footer {
+        padding: 2px 16px;
+        background-color: #5cb85c;
+        color: white;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Weekly Schedular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+<h1 class="text" style="text-align: center"> Weekly Schedular </h1>
+
+<table id="cargo_table" type="table">
+    <thead class="thead-dark">
+    <tr>
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+    </tr>
+    </thead>
+    <tbody id="cargo_table_body">
+    <tr id="seven">
+        <td> 07:00</td>
+        <td id="seven_1"></td>
+        <td id="seven_2"></td>
+        <td id="seven_3"></td>
+        <td id="seven_4"></td>
+        <td id="seven_5"></td>
+        <td id="seven_6"></td>
+        <td id="seven_7"></td>
+
+    </tr>
+    <tr id="eight">
+        <td> 08:00</td>
+        <td id="eight_1"></td>
+        <td id="eight_2"></td>
+        <td id="eight_3"></td>
+        <td id="eight_4"></td>
+        <td id="eight_5"></td>
+        <td id="eight_6"></td>
+        <td id="eight_7"></td>
+
+    </tr>
+    <tr id="nine">
+        <td> 09:00</td>
+        <td id="nine_1"></td>
+        <td id="nine_2"></td>
+        <td id="nine_3"></td>
+        <td id="nine_4"></td>
+        <td id="nine_5"></td>
+        <td id="nine_6"></td>
+        <td id="nine_7"></td>
+
+
+    </tr>
+    </tr>
+    <tr id="ten">
+        <td> 10:00</td>
+        <td id="ten_1"></td>
+        <td id="ten_2"></td>
+        <td id="ten_3"></td>
+        <td id="ten_4"></td>
+        <td id="ten_5"></td>
+        <td id="ten_6"></td>
+        <td id="ten_7"></td>
+
+    </tr>
+    <tr id="eleven">
+        <td> 11:00</td>
+        <td id="eleven_1"></td>
+        <td id="eleven_2"></td>
+        <td id="eleven_3"></td>
+        <td id="eleven_4"></td>
+        <td id="eleven_5"></td>
+        <td id="eleven_6"></td>
+        <td id="eleven_7"></td>
+
+    </tr>
+    <tr id="twelve">
+        <td> 12:00</td>
+        <td id="twelve_1"></td>
+        <td id="twelve_2"></td>
+        <td id="twelve_3"></td>
+        <td id="twelve_4"></td>
+        <td id="twelve_5"></td>
+        <td id="twelve_6"></td>
+        <td id="twelve_7"></td>
+
+    </tr>
+    <tr id="thirteen">
+        <td> 13:00</td>
+        <td id="thirteen_1"></td>
+        <td id="thirteen_2"></td>
+        <td id="thirteen_3"></td>
+        <td id="thirteen_4"></td>
+        <td id="thirteen_5"></td>
+        <td id="thirteen_6"></td>
+        <td id="thirteen_7"></td>
+
+    </tr>
+    <tr id="fourteen">
+        <td> 14:00</td>
+        <td id="fourteen_1"></td>
+        <td id="fourteen_2"></td>
+        <td id="fourteen_3"></td>
+        <td id="fourteen_4"></td>
+        <td id="fourteen_5"></td>
+        <td id="fourteen_6"></td>
+        <td id="fourteen_7"></td>
+
+    </tr>
+    <tr id="fifteen">
+        <td> 15:00</td>
+        <td id="fifteen_1"></td>
+        <td id="fifteen_2"></td>
+        <td id="fifteen_3"></td>
+        <td id="fifteen_4"></td>
+        <td id="fifteen_5"></td>
+        <td id="fifteen_6"></td>
+        <td id="fifteen_7"></td>
+
+    </tr>
+    <tr id="sixteen">
+        <td> 16:00</td>
+        <td id="sixteen_1"></td>
+        <td id="sixteen_2"></td>
+        <td id="sixteen_3"></td>
+        <td id="sixteen_4"></td>
+        <td id="sixteen_5"></td>
+        <td id="sixteen_6"></td>
+        <td id="sixteen_7"></td>
+
+    </tr>
+    <tr id="seventeen">
+        <td> 17:00</td>
+        <td id="seventeen_1"></td>
+        <td id="seventeen_2"></td>
+        <td id="seventeen_3"></td>
+        <td id="seventeen_4"></td>
+        <td id="seventeen_5"></td>
+        <td id="seventeen_6"></td>
+        <td id="seventeen_7"></td>
+    </tr>
+    </tbody>
+</table>
+
+<div class='my_pop_up' id='myForm' style="display: none">
+    <button id='random_activity' class='button' onclick='randomInput()'>Add Random Event</button>
+    <button type='button' class='button' style='background-color: red' onclick='closeForm()'>Close</button>
+    <label style='display: none' id='random_input_label'><b>Random Event</b></label>
+    <input style='display: none' type='text' id='random_input'>
+</div>
+<div id="myModal" class="modal" style="text-align: center">
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Individual Activity</h2>
+        </div>
+        <div class="modal-body">
+            <p>Please enter your Activity</p>
+        </div>
+        <div class="modal-footer" id="random_input_footer">
+            <input type='text' id='user_input'> <br> <br>
+        </div>
+    </div>
+</div>
+<script>
+    let oldHtml = ""
+    var modal = document.getElementById("myModal");
+
+    var span = document.getElementsByClassName("close")[0];
+
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+            document.getElementById("random_input_footer").innerHTML = "<input type='text' id='user_input'> <br> <br>"
+        }
+    }
+
+    async function mert(data) {
+
+        // TODO User input field'ini getirmeye calis.
+        await new Promise(resolve => setTimeout(resolve, 0.1));
+        document.getElementById("random_input_footer")
+        modal.style.display = "block";
+        $("#random_input_footer").append("<button onclick='submitRandomInput(\"" + data + "\")'> Submit Activity</button>")
+
+    }
+
+    async function closeForm(cellName) {
+        console.log(cellName)
+        await new Promise(resolve => setTimeout(resolve, 0.1));
+        $("#" + cellName).html("")
+    }
+
+    async function submitRandomInput(data) {
+        await new Promise(resolve => setTimeout(resolve, 0.1));
+        console.log(document.getElementById("user_input").value)
+        document.getElementById(data).innerHTML = "<h3> " + document.getElementById("user_input").value + " </h3>"
+        document.getElementById("random_input_footer").innerHTML = "<input type='text' id='user_input'> <br> <br>"
+        modal.style.display = "none";
+    }
+
+    function randomInput(cellName) {
+        var settings = {
+            "url": "https://www.boredapi.com/api/activity",
+            "method": "GET",
+            "timeout": 0,
+        };
+        $.ajax(settings).done(function (response) {
+            document.getElementById(cellName).innerHTML = "<h3> " + response.activity + "<\h3>";
+        });
+        let random = document.getElementById("random_input");
+        let random1 = document.getElementById("random_input_label");
+        random1.style.display = "block";
+        random.style.display = "block";
+        document.getElementById("random_activity").style.display = "none";
+    }
+
+    async function clear_event(cellName) {
+        await new Promise(resolve => setTimeout(resolve, 0.1));
+        $("#" + cellName).html("")
+    }
+
+    async function back_from_activity(cellName, oldHTML) {
+        await new Promise(resolve => setTimeout(resolve, 0.1));
+        $("#" + cellName).html("<h3>" + oldHTML + "</h3>")
+
+    }
+
+    $("#cargo_table_body td").click(function () {
+        if ($(this)[0].parentNode.cells[0] != $(this)[0]) {
+            if ($(this)[0].innerHTML == "") {
+                $(this).html("<button style='background-color: darkgoldenrod' id='random_activity_" + $(this).attr('id') + "' class='button' onclick='randomInput(\"" + $(this).attr('id') + "\")'>Add Random Event</button> <br> <br><button type='button' class='button' onclick=mert(\"" + $(this).attr('id') + "\")>Write an Activity</button> <br> <br> <button type='button' class='button' style='background-color: red' onclick='closeForm(\"" + $(this).attr('id') + "\")'>Close</button> <br>");
+            } else if ($(this)[0].innerHTML[2] == '3') {
+                $(this).html("<button type='button' class='button' style='background-color: blue' onclick='back_from_activity(\"" + $(this).attr('id') + "\",\"" + $(this)[0].firstChild.innerHTML + "\")'>Back</button>" +
+                    " <br> <br> <button id='clear_event" + $(this).attr('id') + "' class='button' style='background-color: red' onclick='clear_event(\"" + $(this).attr('id') + "\")'>Clear Activity</button>")
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
